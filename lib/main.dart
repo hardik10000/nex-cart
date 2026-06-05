@@ -15,7 +15,7 @@ class count extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //title: 'Count app',
-       home: LoginScreen(),
+       home: onBoardScreen(),
     );
   }
 }
