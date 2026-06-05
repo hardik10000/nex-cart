@@ -1,8 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/utils/appcolors.dart';
+import 'package:nex_cart/view/auth/onboard_screen.dart';
 
 class splashscreen extends StatefulWidget {
   const splashscreen({super.key});
@@ -19,7 +21,7 @@ class _splashscreenState extends State<splashscreen> {
       print("innit state called");
       Timer(Duration(seconds: 4),(){
         print("print after 4 second");
-       // Get.offAll(()=>);
+        Get.offAll(()=>onBoardScreen());
       });
 
 }
@@ -34,7 +36,7 @@ class _splashscreenState extends State<splashscreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Image(image: AssetImage("assets/Icon/app_icon.png"),),
+            Image(image: AssetImage("assets/Icon/app_icon.png"),),
             Text("shop Smarter, Live Batter",
             style: GoogleFonts.outfit(fontSize: 25,fontWeight: FontWeight.bold,color: AppColors.primaryBlue),
             ),

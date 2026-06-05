@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nex_cart/view/auth/login.dart';
+import 'package:nex_cart/view/auth/onboard_screen.dart';
 import 'package:nex_cart/view/auth/splash_screen.dart';
 void main() {
   runApp( count());
@@ -13,7 +15,7 @@ class count extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //title: 'Count app',
-       home: splashscreen(),
+       home: LoginScreen(),
     );
   }
 }
