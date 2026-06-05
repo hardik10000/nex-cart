@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/utils/appcolors.dart';
+import 'package:nex_cart/view/auth/ragister.dart';
+import 'package:nex_cart/view/auth/terms_condition.dart';
 
 class onBoardScreen extends StatefulWidget {
   const onBoardScreen({super.key});
@@ -129,6 +133,7 @@ class _onBoardScreenState extends State<onBoardScreen> {
                       _pageController.nextPage(duration: Duration(microseconds: 300), curve: Curves.easeInOut);
                     }else{
                       print("This is last Index and Page route");
+                      Get.offAll(() => term_condition());
                     }
                   },
                   child: Container(

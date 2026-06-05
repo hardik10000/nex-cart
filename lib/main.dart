@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nex_cart/view/auth/login.dart';
 import 'package:nex_cart/view/auth/onboard_screen.dart';
 import 'package:nex_cart/view/auth/splash_screen.dart';
+import 'package:nex_cart/view/auth/terms_condition.dart';
 void main() {
   runApp( count());
 }
@@ -15,7 +16,7 @@ class count extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //title: 'Count app',
-       home: onBoardScreen(),
+       home: term_condition(),
     );
   }
 }
