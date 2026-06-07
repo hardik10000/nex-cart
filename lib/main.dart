@@ -3,6 +3,7 @@ import 'package:nex_cart/view/auth/login.dart';
 import 'package:nex_cart/view/auth/onboard_screen.dart';
 import 'package:nex_cart/view/auth/splash_screen.dart';
 import 'package:nex_cart/view/auth/terms_condition.dart';
+import 'package:nex_cart/view/home/homescreen.dart';
 void main() {
   runApp( count());
 }
@@ -16,7 +17,7 @@ class count extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //title: 'Count app',
-       home: term_condition(),
+       home: homescreen(),
     );
   }
 }

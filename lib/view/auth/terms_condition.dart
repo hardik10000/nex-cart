@@ -137,8 +137,7 @@ class term_condition extends StatelessWidget {
                       ),
                       children: [
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                              16, 0, 16, 16),
+                          padding: const EdgeInsets.all(15),
                           child: Text(
                             section["content"],
                             style: GoogleFonts.outfit(
