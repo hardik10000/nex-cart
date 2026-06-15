@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Icons.shopping_cart_outlined,
                       title: "My Cart",
                       onTap: () {
-                       // Get.to(()=> CartListScreen());
+                        Get.to(()=> CartListScreen());
                       },
                     ),
 
