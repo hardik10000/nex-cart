@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nex_cart/utils/app_colors.dart';
 import 'package:nex_cart/utils/appcolors.dart';
-import 'package:nex_cart/view/home/product_details_screen.dart';
-
+import 'package:nex_cart/view/home/product_detailse.dart';
 import '../e_commerce/cart_list_screen.dart';
-import '../e_commerce/wishlist_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -101,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Icons.shopping_cart_outlined,
                       title: "My Cart",
                       onTap: () {
-                        Get.to(()=> CartListScreen());
+                       // Get.to(()=> CartListScreen());
                       },
                     ),
 
@@ -109,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Icons.favorite_border,
                       title: "Wishlist",
                       onTap: () {
-                        Get.to(()=> WishlistScreen());
+                      //  Get.to(()=> WishlistScreen());
                       },
                     ),
 
@@ -224,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   BoxShadow(
                     color: Colors.grey,
                     blurRadius: 03,
-                    offset: Offset(0, 2),
+                    offset: Offset(0, 1),
                   ),
                 ],
               ),
@@ -244,16 +242,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(
-              height: 80,
+              height: 82,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 itemBuilder: (context, index) {
                   var item = categories[index];
-
                   final isSelected = selectedIndex == index;
-
                   return GestureDetector(
                     onTap: () {
                       setState(() {
@@ -261,9 +257,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       });
                     },
                     child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 250),
-                      margin: const EdgeInsets.only(
-                        right: 12,
+                      duration: Duration(milliseconds: 250),
+                      margin: EdgeInsets.only(
+                        right: 8,
                         top: 8,
                         bottom: 8,
                       ),
@@ -310,7 +306,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-
             GridView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -471,7 +466,7 @@ class _HomeScreenState extends State<HomeScreen> {
           color: textColor,
         ),
       ),
-      trailing: const Icon(
+      trailing: Icon(
         Icons.arrow_forward_ios,
         size: 16,
         color: Colors.grey,
