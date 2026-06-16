@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/utils/appcolors.dart';
+import 'package:nex_cart/view/auth/forgot_password_screen.dart';
+import 'package:nex_cart/view/auth/ragister.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -27,6 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                SizedBox(height: 30,),
                 Text(
                   "Welcome Nex Cart",
                   style: GoogleFonts.outfit(
@@ -45,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
 
-                SizedBox(height: 30),
+                SizedBox(height: 50),
 
                 Container(
                   padding: const EdgeInsets.all(20),
@@ -93,9 +96,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(()=>ForgotPasswordScreen());
+                          },
                           child:  Text(
-                            "Forgot Password?",
+                            "change Password",
                           ),
                         ),
                       ),
@@ -113,7 +118,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                               AppColors.primaryBlue
+                               AppColors.primaryBlue,
+                                AppColors.lightBlue
                               ],
                             ),
                             borderRadius:
@@ -129,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Center(
                             child: Text(
                               "Login",
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.outfit(
                                 color: Colors.white,
                                 fontWeight:
                                 FontWeight.bold,
@@ -153,6 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           TextButton(
                             onPressed: () {
+                              Get.to(()=>RegisterScreen());
                             },
                             child: Text(
                               "Register here!",
@@ -189,7 +196,6 @@ class _LoginScreenState extends State<LoginScreen> {
           : TextInputType.text,
       decoration: InputDecoration(
         hintText: hint,
-
         prefixIcon: Icon(
           icon,
           color: AppColors.lightBlue,

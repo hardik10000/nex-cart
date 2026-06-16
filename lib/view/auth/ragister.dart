@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/home/homescreen.dart';
 import 'package:nex_cart/utils/appcolors.dart';
 import 'package:nex_cart/view/auth/login.dart';
+import 'package:nex_cart/view/home/homescreen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -44,8 +45,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(height: 30),
 
               /// LOGO
-
-
               const SizedBox(height: 20),
 
               Text(
@@ -66,9 +65,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
-
-
               const SizedBox(height: 30),
 
               /// FORM CARD
@@ -161,7 +157,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 55,
                       child: ElevatedButton(
                         onPressed: (){
-                          Get.offAll(()=> homesceen());
+                          Get.offAll(()=> HomeScreen());
                         },
                         // onPressed: validateForm,
                         style: ElevatedButton.styleFrom(
@@ -180,14 +176,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 20),
-
-
-
-
-
-
                   ],
                 ),
               ),

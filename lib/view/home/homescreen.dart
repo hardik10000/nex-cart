@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/utils/appcolors.dart';
+import 'package:nex_cart/view/auth/privacy_policy.dart';
+import 'package:nex_cart/view/auth/terms_condition.dart';
 import 'package:nex_cart/view/home/product_detailse.dart';
 import '../e_commerce/cart_list_screen.dart';
-
+import 'package:nex_cart/view/auth/terms_condition.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -162,13 +164,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     _drawerItem(
                       icon: Icons.privacy_tip_outlined,
                       title: "Privacy Policy",
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(()=>PrivacyPolicy());
+                      },
                     ),
 
                     _drawerItem(
                       icon: Icons.description_outlined,
                       title: "Terms & Conditions",
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(()=>TermsCondition());
+                      },
                     ),
 
                     _drawerItem(
