@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/utils/appcolors.dart';
-import 'package:nex_cart/view/auth/change_password_screen.dart';
+import 'package:nex_cart/view/auth/Change_password.dart';
 import 'package:nex_cart/view/auth/ragister.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -89,6 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             !isPasswordObscured;
                           });
                         },
+
                       ),
 
                        SizedBox(height: 10),
@@ -97,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
-                            Get.to(()=>ForgotPasswordScreen());
+                            Get.to(()=>ChangePassword());
                           },
                           child:  Text(
                             "change Password",

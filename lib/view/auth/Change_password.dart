@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/utils/appcolors.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({super.key});
+class ChangePassword extends StatefulWidget {
+  const ChangePassword({super.key});
 
   @override
-  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+  State<ChangePassword> createState() => _ChangePasswordState();
 }
 
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+class _ChangePasswordState extends State<ChangePassword> {
+
   TextEditingController oldPasswordController =
   TextEditingController();
-   TextEditingController newPasswordController =
+  TextEditingController newPasswordController =
   TextEditingController();
-   TextEditingController confirmPasswordController =
+  TextEditingController confirmPasswordController =
   TextEditingController();
 
   bool oldPasswordVisible = false;
@@ -47,13 +48,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               "Create a strong new password for your account",
               textAlign: TextAlign.center,
               style: GoogleFonts.outfit(
-                color: Colors.white70,
-                fontSize: 14,
-                fontWeight: FontWeight.w500
+                  color: Colors.white70,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500
               ),
             ),
 
-             SizedBox(height: 35),
+            SizedBox(height: 35),
 
             /// Card
             Container(

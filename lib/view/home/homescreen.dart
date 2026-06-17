@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/utils/appcolors.dart';
 import 'package:nex_cart/view/auth/privacy_policy.dart';
 import 'package:nex_cart/view/auth/terms_condition.dart';
+import 'package:nex_cart/view/e_commerce/contact_us_screen.dart';
 import 'package:nex_cart/view/home/product_detailse.dart';
 import '../e_commerce/cart_list_screen.dart';
 import 'package:nex_cart/view/auth/terms_condition.dart';
@@ -158,7 +159,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     _drawerItem(
                       icon: Icons.contact_support_outlined,
                       title: "Contact Us",
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(()=>ContactUsScreen());
+                      },
                     ),
 
                     _drawerItem(
