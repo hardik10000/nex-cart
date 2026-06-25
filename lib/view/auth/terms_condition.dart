@@ -87,42 +87,45 @@ class TermsCondition extends StatelessWidget {
         itemCount: termsAndConditions.length,
         itemBuilder: (context, index) {
           final item = termsAndConditions[index];
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                offset: Offset(0, 6),
-                color: Colors.black.withOpacity(0.05),
-                blurRadius: 10,
-                spreadRadius: 1,
-                ),
-              ],
-            ),
-               child: Padding(
-                 padding: const EdgeInsets.all(8.0),
-                 child: Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-                     SizedBox(height: 10,),
-                     Text(
-                       item["title"]!,
-                       style: GoogleFonts.outfit(
-                         fontWeight: FontWeight.w800,
-                         fontSize: 14,
+          return Padding(
+            padding: const EdgeInsets.all(5),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: AppColors.primaryBlue,
+                boxShadow: [
+                  BoxShadow(
+                  offset: Offset(0, 6),
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 10,
+                  spreadRadius: 1,
+                  ),
+                ],
+              ),
+                 child: Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: Column(
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       SizedBox(height: 5,),
+                       Text(
+                         item["title"]!,
+                         style: GoogleFonts.outfit(
+                           fontWeight: FontWeight.w800,
+                           fontSize: 14,
+                         ),
                        ),
-                     ),
-                     SizedBox(height: 5,),
-                     Text(
-                       item["content"]!,
-                       style: GoogleFonts.outfit(
-                         fontWeight: FontWeight.w400,
-                         fontSize: 12,
+                       Text(
+                         item["content"]!,
+                         style: GoogleFonts.outfit(
+                           fontWeight: FontWeight.w400,
+                           fontSize: 12,
+                         ),
                        ),
-                     ),
-                   ],
+                     ],
+                   ),
                  ),
-               ),
+            ),
           );
         },
       ),

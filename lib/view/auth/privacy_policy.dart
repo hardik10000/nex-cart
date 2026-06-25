@@ -75,40 +75,44 @@ class PrivacyPolicy extends StatelessWidget {
         itemCount: privacyPolicy.length,
         itemBuilder: (context, index) {
           var item = privacyPolicy[index];
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadiusGeometry.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 10,
-                  spreadRadius: 1,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 10,),
-                  Text(
-                    item["title"]!,
-                    style: GoogleFonts.outfit(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 14,
-                    ),
-                  ),
-                  SizedBox(height: 5,),
-                  Text(
-                    item["content"]!,
-                    style: GoogleFonts.outfit(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                    ),
+          return Padding(
+            padding: const EdgeInsets.all(5),
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColors.primaryBlue,
+                borderRadius: BorderRadiusGeometry.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                    spreadRadius: 1,
+                    offset: const Offset(0, 4),
                   ),
                 ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 10,),
+                    Text(
+                      item["title"]!,
+                      style: GoogleFonts.outfit(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 14,
+                      ),
+                    ),
+                    SizedBox(height: 5,),
+                    Text(
+                      item["content"]!,
+                      style: GoogleFonts.outfit(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );

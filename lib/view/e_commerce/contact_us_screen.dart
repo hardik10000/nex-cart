@@ -16,7 +16,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
       backgroundColor: AppColors.screenBackground,
       appBar: AppBar(
         title: Text(
-          "contct us",
+          "Contact us",
           style: GoogleFonts.outfit(fontWeight: FontWeight.w500, fontSize: 15),
         ),
       ),

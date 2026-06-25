@@ -12,7 +12,6 @@ import 'package:nex_cart/view/auth/terms_condition.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -50,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       backgroundImage: AssetImage("assets/temp/user_image.png"),
                     ),
 
-                    const SizedBox(width: 16),
+                    SizedBox(width: 16),
 
                     Expanded(
                       child: Column(
@@ -61,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.outfit(
-                              fontSize: 20,
+                              fontSize: 21,
                               fontWeight: FontWeight.w700,
                               color: AppColors.black,
                             ),
@@ -85,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              const Divider(height: 1),
+              Divider(height: 1),
 
               // Drawer Items
               Expanded(
