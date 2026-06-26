@@ -14,10 +14,11 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
-  final contactController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   bool isPasswordObscured = true;
+
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
 
                       _modernField(
-                        contactController,
+                        emailController,
                         "Contact Number",
                         Icons.phone,
                         isNumber: true,
@@ -241,13 +242,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _loginUser() async {
 
-    final contact =
-    contactController.text.trim();
+    final email =
+    emailController.text.trim();
 
     final password =
     passwordController.text.trim();
 
-    if (contact.isEmpty ||
+    if (email.isEmpty ||
         password.isEmpty) {
 
       Get.snackbar(
@@ -256,22 +257,20 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.red,
         colorText: Colors.white,
       );
-    } else if (contact.length != 10) {
-      Get.snackbar(
-        "Error",
-        "Contact number must be 10 digits",
-        backgroundColor: Colors.red,
-        colorText: Colors.white,
-      );
-
     } else {
-      Get.snackbar(
-        "Success",
-        "Login Successful",
-        backgroundColor: Colors.green,
-        colorText: Colors.white,
-      );
+      loginapi(emailAddress: email, password: password);
 
+    }
+  }
+
+  Future loginapi({required String emailAddress, required String password}) async{
+    try{
+      SharedPreferences sp =
+      await SharedPreferences.getInstance();
+
+      var responce await.http.get(
+        uri.parse
+      );
     }
   }
 }
