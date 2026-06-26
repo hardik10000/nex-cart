@@ -133,7 +133,7 @@ class _onBoardScreenState extends State<onBoardScreen> {
                       _pageController.nextPage(duration: Duration(microseconds: 300), curve: Curves.easeInOut);
                     }else{
                       print("This is last Index and Page route");
-                     // Get.offAll(() => term_condition());
+                      Get.offAll(() => RegisterScreen());
                     }
                   },
                   child: Container(

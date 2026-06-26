@@ -7,8 +7,9 @@ import 'package:nex_cart/view/auth/ragister.dart';
 import 'package:nex_cart/view/auth/splash_screen.dart';
 import 'package:nex_cart/view/auth/terms_condition.dart';
 import 'package:nex_cart/view/home/homescreen.dart';
+
 void main() {
-  runApp( count());
+  runApp(count());
 }
 
 class count extends StatelessWidget {
@@ -20,10 +21,7 @@ class count extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       //title: 'Count app',
-       home: RegisterScreen(),
+      home: SplashScreen(),
     );
   }
 }
-
-
-

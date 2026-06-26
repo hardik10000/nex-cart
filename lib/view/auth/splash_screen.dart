@@ -6,25 +6,25 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nex_cart/utils/appcolors.dart';
 import 'package:nex_cart/view/auth/onboard_screen.dart';
 
-class splashscreen extends StatefulWidget {
-  const splashscreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<splashscreen> createState() => _splashscreenState();
+  State<SplashScreen> createState() => _SplashscreenState();
 }
 
-class _splashscreenState extends State<splashscreen> {
+class _SplashscreenState extends State<SplashScreen> {
 
-  void initstate(){
-//     TODO Implimenet initstate
-      super.initState();
-      print("innit state called");
-      Timer(Duration(seconds: 4),(){
-        print("print after 4 second");
-        Get.offAll(()=>onBoardScreen());
-      });
-
-}
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("innit state called");
+    Timer(Duration(seconds: 3),(){
+      print("print after 4 second");
+      Get.offAll(()=>onBoardScreen());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class _splashscreenState extends State<splashscreen> {
           children: [
             Image(image: AssetImage("assets/Icon/app_icon.png"),),
             Text("shop Smarter, Live Batter",
-            style: GoogleFonts.outfit(fontSize: 25,fontWeight: FontWeight.bold,color: AppColors.primaryBlue),
+              style: GoogleFonts.outfit(fontSize: 25,fontWeight: FontWeight.bold,color: AppColors.primaryBlue),
             ),
           ],
         ),
