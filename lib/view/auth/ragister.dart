@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
 import 'package:nex_cart/utils/appcolors.dart';
+import 'package:nex_cart/utils/url.dart';
 import 'package:nex_cart/view/auth/login.dart';
-import 'package:nex_cart/view/home/homescreen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -44,8 +47,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(height: 30),
 
               /// LOGO
-
-
               const SizedBox(height: 20),
 
               Text(
@@ -66,8 +67,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
-
 
               const SizedBox(height: 30),
 
@@ -160,10 +159,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       width: double.infinity,
                       height: 55,
                       child: ElevatedButton(
-                        onPressed: (){
-                          Get.offAll(()=> HomeScreen());
-                        },
-                        // onPressed: validateForm,
+                        // onPressed: (){
+                        //   Get.offAll(()=> HomeScreen());
+                        // },
+                        onPressed: validateForm,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primaryBlue,
                           shape: RoundedRectangleBorder(
@@ -180,7 +179,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -190,10 +190,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Already have an account?",
-                    style: GoogleFonts.outfit(),
-                  ),
+                  Text("Already have an account?", style: GoogleFonts.outfit()),
                   TextButton(
                     onPressed: () {
                       Get.to(() => LoginScreen());
@@ -209,7 +206,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -231,10 +228,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hint,
-        prefixIcon: Icon(
-          icon,
-          color: AppColors.primaryBlue,
-        ),
+        prefixIcon: Icon(icon, color: AppColors.primaryBlue),
         suffixIcon: suffixIcon,
         filled: true,
         fillColor: Colors.grey.shade100,
@@ -247,9 +241,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   bool isValidEmail(String email) {
-    return RegExp(
-      r'^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$',
-    ).hasMatch(email);
+    return RegExp(r'^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$').hasMatch(email);
   }
 
   void validateForm() {
@@ -268,6 +260,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         "Error",
         "Please fill all fields",
         backgroundColor: Colors.red,
+        snackPosition: SnackPosition.BOTTOM,
         colorText: Colors.white,
       );
     } else if (mobile.length != 10) {
@@ -276,6 +269,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         "Enter valid mobile number",
         backgroundColor: Colors.red,
         colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+
       );
     } else if (!isValidEmail(email)) {
       Get.snackbar(
@@ -283,6 +278,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         "Enter valid email address",
         backgroundColor: Colors.red,
         colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+
       );
     } else if (password.length < 6) {
       Get.snackbar(
@@ -290,6 +287,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         "Password must be at least 6 characters",
         backgroundColor: Colors.red,
         colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+
       );
     } else if (password != confirmPassword) {
       Get.snackbar(
@@ -297,14 +296,73 @@ class _RegisterScreenState extends State<RegisterScreen> {
         "Passwords do not match",
         backgroundColor: Colors.red,
         colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+
       );
     } else {
-      Get.snackbar(
-        "Success",
-        "Account Created Successfully",
-        backgroundColor: Colors.green,
-        colorText: Colors.white,
-      );
+      registerAPI(emailAddress: email, Password: password, mobile: mobile);
     }
+  }
+
+  Future registerAPI({
+    required String emailAddress,
+    required String Password,
+    required String mobile,
+  }) async {
+    try {
+      print("API Request Data ${emailAddress}");
+      print("API Request Data ${Password}");
+      print("API Request Data ${mobile}");
+
+      var responce = await http.get(
+        Uri.parse(
+          "${AppUrls.registerUrl}?email=$emailAddress&password=$Password&mobile=$mobile",
+        ),
+      );
+
+      print("responce is ${responce.statusCode}");
+
+      if (responce.statusCode == 200) {
+        var data = jsonDecode(responce.body);
+
+        print("Error : ${data[0]['error']}");
+        print("Success : ${data[1]['success']}");
+        print("Message : ${data[2]['message']}");
+
+        Get.showSnackbar(
+          GetSnackBar(
+            backgroundColor: Colors.green,
+            duration: const Duration(seconds: 3),
+            title: "Success",
+            message: data[2]['message'],
+          ),
+        );
+
+        Get.offAll(() => LoginScreen());
+      } else {
+        Get.showSnackbar(
+          GetSnackBar(
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 3),
+            title: "Error",
+            message: "Invalid Register Attemp",
+          ),
+        );
+        print("Stattus Error ");
+      }
+      // print(jsonDecode(data.toString()));
+    } catch (e) {
+      Get.showSnackbar(
+        GetSnackBar(
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 3),
+          title: "Error",
+          message: "Invalid Login Attempt $e",
+        ),
+      );
+      print("Error Catch $e");
+    }
+
+    return null;
   }
 }

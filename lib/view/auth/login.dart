@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:nex_cart/utils/appcolors.dart';
 import 'package:nex_cart/utils/url.dart';
+import 'package:nex_cart/view/auth/Change_password.dart';
 import 'package:nex_cart/view/auth/ragister.dart';
 import 'package:nex_cart/view/home/homescreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -88,8 +89,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () {},
-                            child: Text("Forgot Password?"),
+                            onPressed: () {
+                          //  Get.to(()=>ChangePassword());
+                            },
+                            child: Text("change Password?"),
                           ),
                         ),
 
